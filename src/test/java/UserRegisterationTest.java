@@ -10,17 +10,20 @@ public class UserRegisterationTest {
             user = new UserRegistration();
         }
 
+
+         @Test
+        public void lastName_WhenTrue() {
+             boolean result = user.validateLastName("Jain");
+             Assertions.assertEquals(true, result);
+
+         }
+
         @Test
-        public void firstName_WithProperValue() {
-            boolean result = user.validateFirstName("Rachana");
-            Assertions.assertTrue(result);
-
-        }
-
-        @Test
-        public void firstName_WithImProperValue() {
-            boolean result = user.validateFirstName("Ra$");
-            Assertions.assertFalse(result);
-        }
-
+        public void lastName_WhenFalse() {
+            boolean result = user.validateLastName("Jain$^GG");
+            Assertions.assertEquals(false, result);
+    }
 }
+
+
+
