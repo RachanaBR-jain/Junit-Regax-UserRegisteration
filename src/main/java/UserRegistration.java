@@ -1,8 +1,9 @@
 
 import java.util.regex.Pattern;
 public class UserRegistration {
-    private static final String PASSWORD ="(?=.*?[A-Z]).{1,}(?=.*?[a-z]).{7,}$";
+    private static final String PASSWORD= "(?=.*?[A-Z]).{1,}(?=.*?[a-z]).{7,}(?=.*?[0-9]).{1,}$";
     /*
+    private static final String PASSWORD ="(?=.*?[A-Z]).{1,}(?=.*?[a-z]).{7,}$";
     private static final String PASSWORD = "^[A-Za-z]{8,12}";
 
     private static final String MOBILE_NUMBER = "^[0-9]{2}[ ][6-9]{1}[0-9]{9}$";
