@@ -11,7 +11,7 @@ public class UserRegisterationTest {
         }
 
 
-         @Test
+        /* @Test
         public void lastName_WhenTrue() {
              boolean result = user.validateLastName("Jain");
              Assertions.assertEquals(true, result);
@@ -21,7 +21,18 @@ public class UserRegisterationTest {
         @Test
         public void lastName_WhenFalse() {
             boolean result = user.validateLastName("Jain$^GG");
-            Assertions.assertEquals(false, result);
+            Assertions.assertEquals(false, result);*/
+
+
+    @Test
+    public void email_WhenTrue() {
+        boolean result = user.validateEmail("brachanaBr@gmail.com");
+        Assertions.assertTrue(result);
+    }
+    @Test
+    public void email_WhenFalse() {
+        boolean result = user.validateEmail("bracha.naBR^r@gmail^..com");
+        Assertions.assertFalse(result);
     }
 }
 
