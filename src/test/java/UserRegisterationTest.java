@@ -21,7 +21,7 @@ public class UserRegisterationTest {
         @Test
         public void lastName_WhenFalse() {
             boolean result = user.validateLastName("Jain$^GG");
-            Assertions.assertEquals(false, result);*/
+            Assertions.assertEquals(false, result);
 
 
     @Test
@@ -32,6 +32,17 @@ public class UserRegisterationTest {
     @Test
     public void email_WhenFalse() {
         boolean result = user.validateEmail("bracha.naBR^r@gmail^..com");
+        Assertions.assertFalse(result);
+        }
+         */
+        @Test
+        public void mobileNumber_WhenTrue() {
+            boolean result = user.validateMobileNumber("91 7892008230");
+            Assertions.assertTrue(result);
+        }
+    @Test
+    public void mobileNumber_WhenFalse() {
+        boolean result = user.validateMobileNumber("123456789055");
         Assertions.assertFalse(result);
     }
 }
