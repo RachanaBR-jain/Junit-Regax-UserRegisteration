@@ -34,7 +34,7 @@ public class UserRegisterationTest {
         boolean result = user.validateEmail("bracha.naBR^r@gmail^..com");
         Assertions.assertFalse(result);
         }
-         */
+
         @Test
         public void mobileNumber_WhenTrue() {
             boolean result = user.validateMobileNumber("91 7892008230");
@@ -45,6 +45,18 @@ public class UserRegisterationTest {
         boolean result = user.validateMobileNumber("123456789055");
         Assertions.assertFalse(result);
     }
+
+         */
+        @Test
+        public void Password_WhenTrue() {
+            boolean result = user.validatePassword("Rachanaa");
+            Assertions.assertTrue(result);
+        }
+        @Test
+        public void Password_WhenFalse() {
+        boolean result = user.validatePassword("Racg%tt^^88");
+        Assertions.assertFalse(result);
+        }
 }
 
 
