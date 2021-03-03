@@ -54,7 +54,7 @@ public class UserRegisterationTest {
         }
         @Test
         public void Password_WhenFalse() {
-        boolean result = user.validatePassword("Racg%tt^^88");
+        boolean result = user.validatePassword("aRacg");
         Assertions.assertFalse(result);
         }
 }
