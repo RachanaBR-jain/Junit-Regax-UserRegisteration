@@ -1,7 +1,7 @@
 
 import java.util.regex.Pattern;
 public class UserRegistration {
-    private static final String PASSWORD= "(?=.*?[A-Z]).{1,}(?=.*?[a-z]).{7,}(?=.*?[0-9]).{1,}$";
+    private static final String PASSWORD= "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,}$";
     /*
     private static final String PASSWORD ="(?=.*?[A-Z]).{1,}(?=.*?[a-z]).{7,}$";
     private static final String PASSWORD = "^[A-Za-z]{8,12}";

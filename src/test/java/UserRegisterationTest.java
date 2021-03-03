@@ -49,12 +49,12 @@ public class UserRegisterationTest {
 
         @Test
         public void Password_WhenTrue() {
-            boolean result = user.validatePassword("Racana123");
+            boolean result = user.validatePassword("rachyR5*ll");
             Assertions.assertTrue(result);
         }
         @Test
         public void Password_WhenFalse() {
-        boolean result = user.validatePassword("raggh&**(");
+        boolean result = user.validatePassword("raggh9");
         Assertions.assertFalse(result);
         }
 
