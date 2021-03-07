@@ -1,62 +1,51 @@
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.api.Test;
 
-@RunWith(Parameterized.class)
 public class UserRegisterationTest {
         UserRegistration user;
-
-        private String email;
-        private boolean expected;
+        boolean result;
+        String[] allEmails;
 
         @BeforeEach
         public void setup() {
                 user = new UserRegistration();
         }
 
-        public  UserRegisterationTest(String email,boolean  expected){
-                this.email= email;
-                this.expected=expected;
-        }
+        @Test
+        public void testAll_ValidEmails() {
 
-        @Parameterized.Parameters
-        public static Collection input(){
-                return Arrays.asList(new Object[][] {
-                        {"abc@yahoo.com", true},
-                        {"abc-100@yahoo.com", true},
-                        {"abc.100@yahoo.com", true},
-                        {"abc111@abc.com", true},
-                        {"abc-100@abc.net", true},
-                        {"abc.100@abc.com.au", true},
-                        {"abc@1.com", true},
-                        {"abc@gmail.com.com", true},
-                        {"abc+100@gmail.com", true},
-                        {"abc", false},
-                        {"abc@.com.my", false},
-                        {"abc123@gmail.a", false},
-                        {"abc123@.com", false},
-                        {"abc123@.com.com", false},
-                        {".abc@abc.com", false},
-                        {"abc()*@gmail.com", false},
-                        {"abc@%*.com", false},
-                        {"abc..2002@gmail.com", false},
-                        {"abc.@gmail.com", false},
-                        {"abc@abc@gmail.com", false},
-                        {"abc@gmail.com.1a", false},
-                        {"abc@gmail.com.aa.au", false}
-                });
+                allEmails = new String[]{"abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com",
+                        "abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com",
+                        "abc+100@gmail.com"};
+
+
+                for (String emailIDs: allEmails) {
+
+                        result = user.validateEmail(emailIDs);
+                        System.out.println(result);
+                        Assertions.assertTrue(result);
+
+                }
         }
 
         @Test
-        public void validateEmail_ForBothTrueAndFalse() {
-                Assertions.assertEquals(expected, user.validateEmail(this.email));
+        public void testAll_InValidEmails() {
+
+                allEmails = new String[]{"abc", "abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com",
+                        ".abc@abc.com", "abc()*@gmail.com", "abc@%*.com", "abc..2002@gmail.com",
+                        "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a", "abc@gmail.com.aa.au"};
+
+                for (String emailIDs: allEmails) {
+
+                        result = user.validateEmail(emailIDs);
+                        System.out.println(result);
+                        Assertions.assertFalse(result);
+
+                }
         }
 
-}
 
+}
 
 
